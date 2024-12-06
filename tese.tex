@@ -27,8 +27,8 @@
 % preciso fornecer o resumo nessas duas línguas. LaTeX aceita alguns nomes
 % diferentes para a língua portuguesa; dentre as opções, prefira sempre
 % "brazilian" para português brasileiro e "portuguese" para português europeu.
-%\documentclass[a4paper,12pt,twoside,brazilian,english]{book}
-\documentclass[a4paper,12pt,twoside,english,brazilian]{book}
+\documentclass[a4paper,12pt,twoside,brazilian,english]{book}
+%\documentclass[a4paper,12pt,twoside,english,brazilian]{book}
 
 % O preâmbulo de um documento LaTeX pode ser razoavelmente longo. Neste
 % modelo, optamos por reduzi-lo, colocando praticamente tudo do preâmbulo
@@ -48,6 +48,8 @@
 % também define os comandos para capa, folha de rosto etc.
 \usepackage{imegoodies}
 \usepackage[thesis]{imelooks}
+
+%\input{extras/bibconfig}   %%%ciro
 
 %\nocolorlinks % para impressão em P&B
 
@@ -91,21 +93,21 @@
 % Estes comandos definem o título e autoria do trabalho e devem sempre ser
 % definidos, pois além de serem utilizados para criar a capa, também são
 % armazenados nos metadados do PDF. O subtítulo é opcional.
-\title{Título do trabalho}[um subtítulo]
-\translatedtitle{Title of the document}[a subtitle]
+\title{A framework for image segmentation with deep neural models on IoT devices}%%%[um subtítulo]
+\translatedtitle{Um framework para segmentação de imagens com redes neurais profundas em dispositivos IoT}%%%[a subtitle]
 
-\author[fem]{Nome Completo}
+\author{Ciro Batista Rosa}
 
 \def\profa{Prof\kern.02em.\kern-.07emª\kern.07em}
 \def\dra{Dr\kern-.04em.\kern-.11emª\kern.07em}
 
 % Para TCCs, este comando define o supervisor
-\orientador[fem]{\profa{} \dra{} Fulana de Tal}
+\orientador[fem]{\profa{} \dra{} Nina S. T. Hirata}
 
 % Se não houver, remova; se houver mais de um, basta
 % repetir o comando quantas vezes forem necessárias
-\coorientador{Prof. Dr. Ciclano de Tal}
-\coorientador[fem]{\profa{} \dra{} Beltrana de Tal}
+%\coorientador{Prof. Dr. Ciclano de Tal}
+%\coorientador[fem]{\profa{} \dra{} Beltrana de Tal}
 
 \banca{
   \profa{} \dra{} Fulana de Tal (orientadora) -- IME-USP [sem ponto final],
@@ -120,17 +122,17 @@
 % definitiva (ou seja, a versão final após a incorporação das sugestões
 % da banca).
 \tipotese{
-  mestrado,
-  %doutorado,
+%  mestrado,
+  doutorado,
   %tcc,
   %definitiva, % É a versão para defesa ou a versão definitiva?
   %quali, % É qualificação?
-  programa={Ciência da Computação},
+  programa={Computer Science}%%%{Ciência da Computação},
 }
 
 \defesa{
   local={São Paulo},
-  data=2017-08-10, % YYYY-MM-DD
+  data=2025-03-31, % YYYY-MM-DD
 }
 
 % Se não houve bolsa, remova
@@ -146,17 +148,17 @@
 %      de Aperfeiçoamento\\ de Pessoal de Nível Superior -- Brasil
 %      (CAPES) -- Código de Financiamento 001} % o código é sempre 001
 %
-%\apoio{This study was financed in part by the Coordenação de
-%      Aperfeiçoamento\\ de Pessoal de Nível Superior -- Brasil
-%      (CAPES) -- Finance Code 001} % o código é sempre 001
+\apoio{This study was financed in part by the Coordenação de
+      Aperfeiçoamento\\ de Pessoal de Nível Superior -- Brasil
+      (CAPES) -- Finance Code 001} % o código é sempre 001
 %
 %\apoio{Durante o desenvolvimento deste trabalho, o autor recebeu\\
 %      auxílio financeiro da FAPESP -- processo nº aaaa/nnnnn-d}
 %
 %\apoio{During the development if this work, the author received\\
 %      financial support from FAPESP -- grant \#aaaa/nnnnn-d}
-\apoio{Durante o desenvolvimento deste trabalho o autor
-       recebeu auxílio financeiro da XXXX}
+%\apoio{Durante o desenvolvimento deste trabalho o autor
+%       recebeu auxílio financeiro da XXXX}
 
 % A licença do seu trabalho. Use CC-BY, CC-BY-NC, CC-BY-ND, CC-BY-SA,
 % CC-BY-NC-SA ou CC-BY-NC-ND para escolher a licença Creative Commons
@@ -167,7 +169,7 @@
 % acrescentados ao BDTA. Se você tem alguma intenção de publicar o
 % trabalho comercialmente no futuro, sugerimos a licença CC-BY-NC-ND.
 %
-%\direitos{CC-BY-NC-ND}
+\direitos{CC-BY-NC-ND}   %%% ciro: revisar no final
 %
 %\direitos{Autorizo a reprodução e divulgação total ou parcial deste
 %          trabalho, por qualquer meio convencional ou eletrônico,
@@ -177,7 +179,7 @@
 %          of this work by any conventional or electronic means for study
 %          and research purposes, provided that the source is acknowledged.}
 %
-\direitos{CC-BY}
+%\direitos{CC-BY}
 
 % Para gerar a ficha catalográfica, acesse https://fc.ime.usp.br/,
 % preencha o formulário e escolha a opção "Gerar Código LaTeX".
@@ -264,14 +266,24 @@ texto texto texto texto. Texto opcional.
 \disablenewpage{\chapter*{Lista de abreviaturas}}
 
 \begin{tabular}{rl}
-   CFT & Transformada contínua de Fourier (\emph{Continuous Fourier Transform})\\
-   DFT & Transformada discreta de Fourier (\emph{Discrete Fourier Transform})\\
-  EIIP & Potencial de interação elétron-íon (\emph{Electron-Ion Interaction Potentials})\\
-  STFT & Transformada de Fourier de tempo reduzido (\emph{Short-Time Fourier Transform})\\
-  ABNT & Associação Brasileira de Normas Técnicas\\
-   URL & Localizador Uniforme de Recursos (\emph{Uniform Resource Locator})\\
-   IME & Instituto de Matemática e Estatística\\
-   USP & Universidade de São Paulo
+	aarch64 & 64-bits ARM microprocessors instruction set architecture\\
+	AI & Artificial Intelligence\\
+	CPU & Central Processing Unit\\
+	CNN & Convolutional Neural Network\\
+	DNN & Deep Neural Network\\
+	FCN & Fully Convolutional Network\\
+	GPU & Graphics Processing Unit\\
+	IME & Abbreviation in Portuguese for Institute of Mathematics and Statistics\\
+	IoT & Internet of Things\\
+	KD & Knowledge Distillation\\
+	ML & Machine Learning\\
+	RAM & Random Access Memory\\
+	RFID & Radio Frequency Identification\\
+	RGB & Red, Green, Blue (the basic colors)\\
+	SoC & System on Chip\\
+	USP & University of São Paulo\\
+	WHCN & Width x Height x Channels x Number of images (the four dimensions of a tensor)\\
+	x86-64 & 64-bits Intel/AMD microprocessors instruction set architecture\\
 \end{tabular}
 
 %\chapter*{Lista de símbolos}
